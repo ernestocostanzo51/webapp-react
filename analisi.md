@@ -1,7 +1,7 @@
 installiamo le dipendenze
 
 creiamo cartelle varie
-nella pagina principale (app.js) creiamo l'instradamento /homepage /books /books/:id con il browserouter
+nella pagina principale (app.jsx) creiamo l'instradamento /homepage /books /books/:id con il browserouter
 
 
 
