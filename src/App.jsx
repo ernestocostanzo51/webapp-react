@@ -1,6 +1,6 @@
 import Layout from "./layouts/layout"
 import { BrowserRouter, Routes, Route } from "react-router"
-import Books from "./pages/Books"
+import Movies from "./pages/Movies"
 import HomePage from "./pages/HomePage"
 
 
@@ -13,7 +13,7 @@ function App() {
      <Routes>
        <Route element={<Layout/>}>
         <Route index  element={<HomePage/>}/>
-        <Route path="books" element= {<Books/>}/>
+        <Route path="books" element= {<Movies/>}/>
        </Route>
      </Routes>
      </BrowserRouter>
