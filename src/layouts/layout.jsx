@@ -29,7 +29,7 @@ export default function Layout() {
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/movies">
-                    Lista Libri
+                    Lista Film
                   </NavLink>
                 </li>
               </ul>
