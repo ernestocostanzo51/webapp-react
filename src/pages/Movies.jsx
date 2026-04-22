@@ -25,6 +25,9 @@ export default function Movies(){
                 alt={movie.title} 
                 style={{ height: '300px', objectFit: 'cover' }} />
               <div className="card-body">
+                <div className="mb-3">
+    <strong>Voto:</strong> {movie.avg_vote} 
+  </div>
                 <h5 className="card-title">{movie.title}</h5>
                 <p className="card-text text-muted">{movie.director}</p>
                 <NavLink to={`/movies/${movie.id}`} className="btn btn-primary">Vedi Dettagli</NavLink>
