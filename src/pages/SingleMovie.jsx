@@ -24,7 +24,7 @@ export default function SingleMovie() {
           <div className="row">
             <div className="col-md-4">
               <img 
-                src={movie.image} 
+                src={`http://localhost:3000/img/${movie.image}`} 
                 alt={movie.title} 
                 className="img-fluid rounded shadow" 
               />

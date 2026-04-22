@@ -20,7 +20,7 @@ export default function Movies(){
           <div className="col-md-4" key={movie.id}>
             <div className="card h-100">
               <img 
-                src={movie.image} 
+                src={`http://localhost:3000/img/${movie.image}`} 
                 className="card-img-top" 
                 alt={movie.title} 
                 style={{ height: '300px', objectFit: 'cover' }} />
