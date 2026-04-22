@@ -61,21 +61,41 @@ export default function SingleMovie() {
               </div>
               <p className="text-center display-5 mt-5">Recensioni utenti:</p>
               
-              <table class="table table-striped table-hover mt-5">
-                <thead>
-                  <tr>
-                      <th scope="col">Nome</th>
-                      <th scope="col">Voto</th>
-                      <th scope="col">Recensione</th>
-                      <th scope="col">Publicato il</th>
-                 </tr>
-
-                </thead>
-                <tbody>
-
-                </tbody>
-
-              </table>
+              <table className="table table-striped table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Voto</th>
+      <th scope="col">Recensione</th>
+      <th scope="col">Pubblicato il</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {movie.reviews && movie.reviews.length > 0 ? (
+      movie.reviews.map((review) => (
+        <tr key={review.id}>
+          <td><strong>{review.name}</strong></td>
+          <td>
+             
+             {review.vote} <span style={{ color: "gold" }}>★</span>
+          </td>
+          <td>{review.text}</td>
+          <td>
+            
+            {review.created_at ? new Date(review.created_at).toLocaleDateString() : "N/D"}
+          </td>
+        </tr>
+      ))
+    ) : (
+      <tr>
+        <td colSpan="4" className="text-center text-muted">
+          Nessuna recensione disponibile per questo film.
+        </td>
+      </tr>
+    )}
+  </tbody>
+</table>
 
             </div>
            
