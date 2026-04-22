@@ -25,7 +25,7 @@ export default function Movies(){
                 className="card-img-top" 
                 alt={movie.title} 
                 style={{ height: '550px' }} />
-              <div className="card-info">
+              <div className="card-body">
                 <div className="mb-3">
                 <strong>Voto:</strong> {movie.avg_vote} 
                {+movie.avg_vote >= 1 && <span style={{ color: "gold" }}>★</span>}

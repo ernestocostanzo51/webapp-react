@@ -28,3 +28,10 @@ poi si esporta tutto e si mette in app.jsx
 
 andando nella backend si avvia il tutto dal terminale per andare a visualizzare i film
 
+### DA FARE ANCORA:
+  - Predisporre una pagina Admin dove mostrare una tabella con l'elenco dei film
+
+  - Nella pagina di elenco films, quando l'utente e' in hover sull'immagine del film appare un'icona di un occhio 👁️, cliccando l'immagine si apre una modale con all'interno i dettagli del film completi + il pulsante per visitare il singolo film
+
+  - Aggiungere un form statico allla pagine del singolo FILM per l'invio di una recensione
+
