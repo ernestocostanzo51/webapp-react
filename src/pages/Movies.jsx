@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 export default function Movies(){
     const [movies, setMovies] = useState([]);
+    
 
   useEffect(() => {
     
@@ -26,8 +27,13 @@ export default function Movies(){
                 style={{ height: '300px', objectFit: 'cover' }} />
               <div className="card-body">
                 <div className="mb-3">
-    <strong>Voto:</strong> {movie.avg_vote} 
-  </div>
+                <strong>Voto:</strong> {movie.avg_vote} 
+               {+movie.avg_vote >= 1 && <span style={{ color: "gold" }}>★</span>}
+    {+movie.avg_vote >= 2 && <span style={{ color: "gold" }}>★</span>}
+    {+movie.avg_vote >= 3 && <span style={{ color: "gold" }}>★</span>}
+    {+movie.avg_vote >= 4 && <span style={{ color: "gold" }}>★</span>}
+    {+movie.avg_vote >= 5 && <span style={{ color: "gold" }}>★</span>}
+                </div>
                 <h5 className="card-title">{movie.title}</h5>
                 <p className="card-text text-muted">{movie.director}</p>
                 <NavLink to={`/movies/${movie.id}`} className="btn btn-primary">Vedi Dettagli</NavLink>
