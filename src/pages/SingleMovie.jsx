@@ -2,8 +2,37 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 export default function SingleMovie() {
+
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+const [formData, setFormData] = useState({
+  name: "",
+  vote: 0,
+  text: ""
+});
+
+
+const handleInputChange = (e) => {
+  const { name, value } = e.target;
+  setFormData({ ...formData, [name]: value });
+};
+
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  
+  fetch(`http://localhost:3000/movies/${id}/reviews`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+
+      window.location.reload(); 
+    })
+    .catch((err) => console.error("Errore nell'invio:", err));
+};
 
   const typeConfig = {
     Science_Fiction: { label : 'Scienze fiction' , color :'#A890F0'},
@@ -60,7 +89,56 @@ export default function SingleMovie() {
                 <span className="text-muted p-4"> Anno: {movie.release_year}</span>
               </div>
               <p className="text-center display-5 mt-5">Recensioni utenti:</p>
-              
+              <div className="card my-5 shadow-sm">
+  <div className="card-body">
+    <h4>Lascia una recensione</h4>
+    <form onSubmit={handleSubmit}>
+      <div className="mb-3">
+        <label className="form-label">Nome</label>
+        <input 
+          type="text" 
+          className="form-control" 
+          name="name" 
+          value={formData.name} 
+          onChange={handleInputChange} 
+          required 
+        />
+      </div>
+      
+      <div className="mb-3">
+        <label className="form-label">Voto (da 1 a 5)</label>
+        <select 
+          className="form-select" 
+          name="vote" 
+          value={formData.vote} 
+          onChange={handleInputChange} 
+          required
+        >
+          <option value="">Scegli un voto...</option>
+          <option value="1">1 ★</option>
+          <option value="2">2 ★</option>
+          <option value="3">3 ★</option>
+          <option value="4">4 ★</option>
+          <option value="5">5 ★</option>
+        </select>
+      </div>
+
+      <div className="mb-3">
+        <label className="form-label">Recensione</label>
+        <textarea 
+          className="form-control" 
+          name="text" 
+          rows="3" 
+          value={formData.text} 
+          onChange={handleInputChange} 
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" className="btn btn-primary">Invia Recensione</button>
+    </form>
+  </div>
+</div>
               <table className="table table-striped table-hover mt-5">
   <thead>
     <tr>
@@ -72,7 +150,7 @@ export default function SingleMovie() {
   </thead>
   <tbody>
     
-    {movie.reviews && movie.reviews.length > 0 ? (
+    {movie.reviews ? (
       movie.reviews.map((review) => (
         <tr key={review.id}>
           <td><strong>{review.name}</strong></td>

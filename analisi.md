@@ -23,6 +23,7 @@ nella cartella PAGES andimao ad inserie tutte le pagine della webapp
  - per la visualizzazone del singolo film (SingleMovies.jsx)
     - chiamata AJAX per la visualizzazione di un singolo film utilizzando come parametro l'ID
     - parte di pagina dedicata alle recensione che andremo ad estrapolare dal database
+    - aggiunta di un form per il postaggio di una recensione
 
 poi si esporta tutto e si mette in app.jsx
 
